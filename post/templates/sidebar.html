@@ -1,0 +1,53 @@
+{% load static %}
+<aside class="sidebar">
+    <div class="category">
+        <h2>Category</h2>
+        <ul class="category-list">
+
+            {% for cat in cat_count %}
+            <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                <a href="#">{{ cat.categories__title}}</a>
+                <span>({{ cat.categories__count}})</span>
+            </li>
+            {% endfor %}
+            
+        </ul>
+    </div>
+    <div class="popular-post">
+        <h2>Popular Post</h2>
+
+
+        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+
+            {% for popular in popular_post %}
+            <div class="post-image">
+                <div>
+                    <img src="{% static 'assets/popular-post/m-blog-1.jpg' %}" class="img" alt="blog1">
+                </div>
+                <div class="post-info flex-row">
+                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,
+                        2019</span>
+                    <span>2 Commets</span>
+                </div>
+            </div>
+            <div class="post-title">
+                <a href="#">{{popular.title}}</a>
+            </div>
+            {% endfor %}
+        </div>
+        
+        
+        
+        
+    </div>
+    <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+        <h2>Newsletter</h2>
+        <div class="form-element">
+            <form action="." method="POST">
+                {% csrf_token %}
+            <input type="text" class="input-element" name="email" placeholder="Email">
+            <button class="btn form-btn" type="submit">Subscribe</button>
+        </form>
+        </div>
+    </div>
+</aside>

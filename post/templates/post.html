@@ -1,0 +1,86 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+    {% include 'nav.html' %}
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
+
+    <!----------------------------- Main Site Section ------------------------------>
+
+    <main>
+
+
+        <!-- ---------------------- Site Content -------------------------->
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="{{post.thumbnail.url}}" class="img" alt="blog1">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{post.author}}</span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{post.timestamp|date}}</span>
+                                <span>{{view_post.comment_count}} Comments</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">{{post.title}}</a>
+                            <p>{{post.overview}}
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <div class="comments">
+                        <div class="list-comments">
+                            <h3>Comments</h3>
+                            <ul>
+                                <li>This is a comment</li>
+                                <li>This is a comment</li>
+                            </ul>
+                        </div>
+                        <div class="give-comment">
+                            <form action="">
+                                <input type="text" placeholder="comment">
+                                <button type="submit">Comment</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>
+
+
+                <!-- Register sidebar -->
+
+            {% include 'sidebar.html' %}
+                
+
+
+
+            </div>
+        </section>
+
+        <!-- -----------x---------- Site Content -------------x------------>
+
+    </main>
+
+    <!---------------x------------- Main Site Section ---------------x-------------->
+
+
+    <!-- --------------------------- Footer ---------------------------------------- -->
+
+    {% include 'footer.html' %}
+
+    <!-- -------------x------------- Footer --------------------x------------------- -->
+
+    {% endblock %}
